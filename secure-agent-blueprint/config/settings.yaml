@@ -1,0 +1,43 @@
+# ====================================================================
+# SECURE AGENT BLUEPRINT SYSTEM CONFIGURATION
+# ====================================================================
+
+system:
+  project_name: "secure-agent-blueprint"
+  version: "1.0.0"
+  log_level: "INFO"
+
+orchestrator:
+  default_routing_mode: "hybrid" # Options: local, cloud, hybrid
+  temperature: 0.2               # Enforces deterministic, strict code output
+  max_iterations: 10             # Prevents subagents from looping infinitely
+
+memory_fabric:
+  relational:
+    engine: "sqlite"
+    backup_enabled: true
+    retention_days: 90
+  vector_store:
+    engine: "chromadb"
+    distance_metric: "cosine"
+  knowledge_base:
+    platform: "obsidian"
+    sync_on_startup: true
+
+optimization_skills:
+  caveman:
+    strip_conversational_filler: true
+    force_dense_code_output: true
+  graphify:
+    enabled: true
+    output_directory: "./graphify-out"
+    depth_limit: 3
+
+tool_gateway:
+  mcp_provider: "composio"
+  auto_discover_tools: true
+  allowed_fallback_apps:
+    - "github"
+    - "slack"
+    - "discord"
+    - "playwright"
