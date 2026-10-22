@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Custom Secure Agent Blueprint Rule Overrides
+*.db
+*.sqlite
+src/memory/vector_db/
+graphify-out/
+
